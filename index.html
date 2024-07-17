@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switzerland website</title>
+    <style>
+        .country-switcher {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to the Switzerland Site</h1>
+    <p>This is a demo of a country switcher that redirects you to the appropriate site based on your geographical
+        location. For your project, I will use a geolocation API to determine the user's location and update the link
+        accordingly.</p>
+    <p>For this demo, I have used Javascript to return a random choice between Germany and Switzerland. To see how it
+        works, refresh the site several times and incase the computer has randomly chosen Germany, the pop up will
+        appear. If not, you will stay on this sample Switzerland website </p>
+
+    <div class="country-switcher">
+        <a href="germany.html">Germany</a> |
+        <a href="index.html">Switzerland</a>
+    </div>
+
+    <script>
+        // Simulate the geolocation detection
+        function getCountryCode() {
+            // In a real implementation, you would use a geolocation API to get the country code.
+            // For this example, we'll just return 'DE' (Germany) or 'CH' (Switzerland) based on a random choice.
+            return Math.random() > 0.5 ? 'DE' : 'CH';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var countryCode = getCountryCode();
+            var currentPage = 'switzerland'; // Simulate the current page (either 'germany' or 'switzerland')
+
+            if (countryCode === 'DE' && currentPage === 'switzerland') {
+                if (confirm("Looks like you are from Germany, do you want to visit the site for Germany?")) {
+                    window.location.href = "germany.html";
+                }
+            } else if (countryCode === 'CH' && currentPage === 'germany') {
+                if (confirm("Looks like you are from Switzerland, do you want to visit the site for Switzerland?")) {
+                    window.location.href = "index.html";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

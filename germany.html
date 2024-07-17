@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germany site</title>
+    <style>
+        .country-switcher {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color: aqua;">
+    <h1 style="padding-left: 300px; padding-top: 100px;">Welcome to Germany</h1>
+    <p style="padding-left: 250px;">Hi, welcome. You have been redirected to Germany website. </p>
+    <div class="country-switcher">
+        <a href="germany.html">Germany</a> |
+        <a href="index.html">Switzerland</a>
+    </div>
+    <script>
+        // Simulate the geolocation detection
+        function getCountryCode() {
+            // In a real implementation, you would use a geolocation API to get the country code.
+            // For this example, we'll just return 'DE' (Germany) or 'CH' (Switzerland) based on a random choice.
+            return Math.random() > 0.5 ? 'CiH' : 'DoE';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var countryCode = getCountryCode();
+            var currentPage = 'germany'; // Simulate the current page (either 'germany' or 'switzerland')
+
+            if (countryCode === 'DE' && currentPage === 'germany') {
+                if (confirm("Looks like you are from Germany, do you want to visit the site for Germany?")) {
+                    window.location.href = "germany.html";
+                }
+            } else if (countryCode === 'CH' && currentPage === 'germany') {
+                if (confirm("Looks like you are from Switzerland, do you want to visit the site for Switzerland?")) {
+                    window.location.href = "index.html";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
